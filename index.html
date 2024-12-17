@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Mint Documentation</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Linux Mint Virtual Machine Documentation</h1>
+        <p>Your guide to installing, configuring, and using Linux Mint on a Virtual Machine.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="linux-installation.html">Linux Installation</a></li>
+            <li><a href="vm-installation.html">Linux Installation on VM</a></li>
+            <li><a href="hardware-support.html">Hardware and Driver Support</a></li>
+            <li><a href="firmware.html">Firmware</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="card">
+            <h2>Introduction</h2>
+            <p>Linux Mint is a modern, user-friendly Linux distribution designed for both beginners and experienced users. It is based on Ubuntu, one of the most popular Linux distributions, and emphasizes simplicity, stability, and ease of use. By running Linux Mint on a Virtual Machine (VM), users can explore and work with Linux without making permanent changes to their existing system. This approach is particularly useful for development, testing, or learning purposes.</p>
+            <img src="assets/img/Linux-Mint-logo.png" width="30%" style="margin: auto;" alt="Linux Mint Logo">
+            <h3>What is Linux Mint?</h3>
+            <p>Linux Mint is an open-source operating system that provides a powerful alternative to Windows or macOS. It features a clean and intuitive interface, pre-installed software for everyday tasks, and excellent community support. It is widely appreciated for its focus on:</p>
+            <ul>
+                <li><strong>Ease of Use:</strong> A familiar desktop environment and user-friendly features.</li>
+                <li><strong>Stability:</strong> Built on Ubuntu, ensuring long-term support and reliability.</li>
+                <li><strong>Customization:</strong> Users can tailor their systems to meet specific needs.</li>
+            </ul>
+            <p>Popular versions of Linux Mint include desktop environments like Cinnamon (default), MATE, and Xfce. This guide uses the Cinnamon edition, known for its balance of features and performance.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Why Use Linux Mint on a Virtual Machine?</h2>
+            <ul>
+                <li>Safe Experimentation: You can try Linux Mint without altering your primary operating system or risking data loss.</li>
+                <li>Convenience: Easily switch between Linux Mint and your host operating system.</li>
+                <li>Learning: Explore Linux commands, configurations, and applications in an isolated environment.</li>
+            </ul>
+            <img src="assets/img/install-linux-mint-in-virtualbox.webp" width="80%" style="margin: auto;" alt="image of VirtualBox running Linux Mint">
+        </div>
+
+        <div class="card">
+            <h2>Prerequisites</h2>
+            <h3>1. Hardware Requirements</h3>
+            <p>To run Linux Mint on a virtual machine, your system needs to meet the following hardware specifications. These are typical for most modern computers, but you should verify your system's capabilities to avoid any performance issues.</p>
+            <ul>
+                <li><strong>Processor (CPU):</strong> A 64-bit processor is required to run Linux Mint and VirtualBox. Most modern processors from Intel and AMD (e.g., Intel Core i3/i5/i7 or AMD Ryzen series) are suitable.<br> 
+                <em>Tip:</em> Check if your CPU supports virtualization (Intel VT-x or AMD-V) in the BIOS settings.</li>
+                <li><strong>RAM (Memory):</strong><br>
+                ✔ Minimum: 4 GB<br>
+                ✔ Recommended: 8 GB or more<br>
+                The more RAM you allocate to the virtual machine, the better the performance. However, leave some RAM for your host system (your main operating system).</li>
+                <li><strong>Storage (Hard Drive Space):</strong><br>
+                ✔ Minimum: 20 GB free space<br>
+                ✔ Recommended: 40 GB or more<br>
+                Virtual machines need disk space for both the virtual operating system (Linux Mint) and any applications you plan to install. Allocate sufficient space for smooth operation.</li>
+                <li><strong>Graphics:</strong> Any modern integrated or dedicated graphics card should work fine. VirtualBox provides basic graphics acceleration, but high-end graphics are not a priority for Linux Mint on a VM unless you plan to run graphically intensive applications.</li>
+            </ul>
+            
+            <h3>2. Software Requirements</h3>
+            <p>You’ll need to install the following software on your host system to be able to create and manage the virtual machine and install Linux Mint.</p>
+            <ul>
+                <li><strong>Virtualization Software:</strong><br>
+                ✔ VirtualBox (recommended): VirtualBox is a free and open-source tool for creating and managing virtual machines.<br>
+                ✔ Download from the official website: VirtualBox Downloads.<br>
+                ✔ Alternative: VMware Workstation Player (also free) can be used, but the steps in this guide assume VirtualBox.</li>
+                <li><strong>Linux Mint ISO File:</strong> You need the installation file for Linux Mint in ISO format. The latest version can be downloaded from the official Linux Mint website.<br>
+                ✔ Download Link: Linux Mint Download Page.<br>
+                ✔ Select the desired desktop environment (Cinnamon, MATE, or Xfce) and download the ISO. Cinnamon is the most popular and offers the most modern experience.</li>
+                <li><strong>Host Operating System:</strong> Your host system can be any modern operating system such as:<br>
+                ✔ Windows: Windows 7, 8, 10, or 11.<br>
+                ✔ macOS: Any version that supports VirtualBox.<br>
+                ✔ Linux: Any major Linux distribution (Ubuntu, Fedora, etc.).</li>
+                <li><strong>Internet Connection:</strong> While not strictly required for installation, an internet connection is recommended for downloading updates, additional software, and VirtualBox Guest Additions for better performance.</li>
+            </ul>
+
+            <h3>3. BIOS Settings (for Virtualization)</h3>
+            <p>To run a virtual machine, virtualization technology (VT-x for Intel or AMD-V for AMD processors) must be enabled in the BIOS of your laptop or desktop. This feature is often disabled by default but can be easily turned on.</p>
+            <ol>
+                <li>Restart your laptop/PC and enter BIOS or UEFI settings (press a key such as Esc, F2, F10, or Del during startup — this varies by manufacturer).</li>
+                <li>In the BIOS menu, look for a setting named Intel Virtualization Technology, Intel VT-x, AMD-V, or something similar under Advanced, CPU Configuration, or System Configuration.</li>
+                <li>Enable the setting and save changes before exiting BIOS.</li>
+                <li>Your system will now be able to run VirtualBox and other virtualization tools.</li>
+            </ol>
+
+            <h3>4. Backup Important Data</h3>
+            <p>Before starting the installation of any new system, including running Linux Mint on a VM, it's always a good idea to back up important files on your host system. While this guide will not affect your main operating system, it's a precautionary step to avoid data loss during the setup process.</p>
+
+            <h3>Summary of Prerequisites</h3>
+            <ul>
+                <li><strong>Hardware:</strong> 64-bit CPU, at least 4 GB of RAM (8 GB recommended), 20 GB free storage space.</li>
+                <li><strong>Software:</strong> Download and install VirtualBox and Linux Mint ISO file.</li>
+                <li><strong>BIOS:</strong> Enable virtualization in your system's BIOS settings.</li>
+                <li><strong>Backup:</strong> Always back up important files before proceeding.</li>
+                <li><strong>Internet:</strong> Recommended for downloading updates and software during installation.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Troubleshooting</h2>
+            <p>If you encounter any issues while using Linux Mint in a Virtual Machine (VM), here are common problems and their solutions:</p>
+            <h3>1. VM Won't Start or Freezes on Boot:</h3>
+            <ul>
+                <li>✔ <strong>Check VirtualBox Settings:</strong> Ensure the VM’s settings have enough allocated resources (CPU and RAM). If it's too low, the system may fail to boot.</li>
+                <li>✔ <strong>Enable Virtualization:</strong> In your computer’s BIOS/UEFI, make sure Intel VT-x or AMD-V is enabled for virtualization. This can improve VM performance and allow smoother operation.</li>
+                <li>✔ <strong>Reinstall Linux Mint:</strong> If the issue persists, try reinstalling the OS or using a different ISO file.</li>
+            </ul>
+            
+            <h3>2. Low Performance (Lag or Slowness):</h3>
+            <ul>
+                <li>✔ <strong>Increase Resources:</strong> Allocate more RAM and CPU cores to your VM. Open VirtualBox, right-click the VM, go to Settings > System, and increase the available resources.</li>
+                <li>✔ <strong>Enable 3D Acceleration:</strong> If you experience slow graphics, go to Settings > Display in VirtualBox and enable 3D acceleration.</li>
+                <li>✔ <strong>Optimize VM Storage:</strong> If the virtual hard disk is too small or fragmented, it can affect performance. Increase the size of the virtual disk or consider using a fixed-size disk instead of dynamically allocated storage.</li>
+            </ul>
+
+            <h3>3. No Internet Connection:</h3>
+            <ul>
+                <li>✔ <strong>Check Network Settings:</strong> In VirtualBox, ensure the network adapter is set correctly. You can choose either NAT (for automatic internet access) or Bridged (for a direct connection to the host network).</li>
+                <li>✔ <strong>Restart Network Services</strong></li>
+                <li>✔ <strong>Reinstall Network Drivers:</strong> Check if the correct drivers are installed for your network device via the Driver Manager in Linux Mint.</li>
+            </ul>
+
+            <h3>4. Display Issues or Resolution Problems:</h3>
+            <ul>
+                <li>● <strong>Install VirtualBox Guest Additions:</strong> This is necessary for better graphics and resolution scaling.<br>
+                    Steps:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;1. Start the VM.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;2. In VirtualBox, go to Devices > Insert Guest Additions CD image.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;3. Follow the on-screen instructions in Linux Mint to install the Guest Additions.</li>
+                <li>● <strong>Adjust Screen Resolution:</strong> After installation, you may need to adjust the resolution in System Settings > Display.</li>
+            </ul>
+
+            <h3>5. Shared Folders Not Working:</h3>
+            <ul>
+                <li>✔ <strong>Install VirtualBox Guest Additions:</strong> As with display issues, shared folders require Guest Additions to function properly. Ensure they are installed.</li>
+                <li>✔ <strong>Enable Folder Sharing:</strong> In VirtualBox, go to Settings > Shared Folders, and configure the folder you want to share. Be sure to mount it correctly in Linux Mint.</li>
+                <li>✔ <strong>Check Permissions:</strong> Make sure the shared folder has proper read/write permissions for your user account.</li>
+            </ul>
+
+            <h3>6. Audio Not Working:</h3>
+            <ul>
+                <li>✔ <strong>Check Sound Settings:</strong> Inside Linux Mint, open System Settings > Sound and ensure the correct output device is selected.</li>
+                <li>✔ <strong>Reinstall Audio Drivers:</strong> In some cases, audio issues can be fixed by reinstalling or updating sound drivers through the Driver Manager.</li>
+                <li>✔ <strong>Enable Audio in VirtualBox:</strong> Ensure that the audio device is enabled in the Settings > Audio section of VirtualBox.</li>
+            </ul>
+
+            <h3>7. Frozen System or Unresponsive Mouse/Keyboard:</h3>
+            <ul>
+                <li>✔ <strong>Use Host Key:</strong> If your mouse or keyboard becomes trapped in the VM, press the Host Key (usually the Right Ctrl key) to release control.</li>
+                <li>✔ <strong>Force Shutdown:</strong> If the system is unresponsive, you can force the VM to shut down by selecting the VM in VirtualBox and clicking Close > Power off. However, this may result in data loss, so it’s best used as a last resort.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Conclusion</h2>
+            <p>Setting up and using Linux Mint in a Virtual Machine (VM) offers a flexible and secure environment to explore, test, and develop on the Linux operating system without affecting your primary system. With proper troubleshooting, you can resolve common issues and enjoy a smooth Linux experience in a virtualized setup.</p>
+            <img src="assets/img/linux-installed.png" width="70%" style="margin: auto;" alt="image of VirtualBox running Linux Mint">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Linux Mint Documentation. All rights reserved.</p>
+    </footer>
+</body>
+</html>

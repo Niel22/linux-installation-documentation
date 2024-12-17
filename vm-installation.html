@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Installation on VM</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Linux Installation on a Virtual Machine</h1>
+        <p>This guide explains how to install Linux in a virtual machine using VirtualBox.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="linux-installation.html">Linux Installation</a></li>
+            <li><a href="vm-installation.html">Linux Installation on VM</a></li>
+            <li><a href="hardware-support.html">Hardware and Driver Support</a></li>
+            <li><a href="firmware.html">Firmware</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="card">
+
+            <h1>DOWNLOAD AND INSTALL VIRTUAL BOX</h1>
+            <p>VirtualBox is a free, open-source software that allows you to run multiple operating systems on your
+                computer
+                simultaneously in a virtual machine. In this step, we'll walk you through how to download and install
+                VirtualBox, the software that will enable you to create a virtual environment for Linux Mint.</p>
+
+            <h2>1. Downloading VirtualBox</h2>
+            <p>To download VirtualBox, follow these steps:</p>
+
+            <h3>Step 1: Visit the VirtualBox Website</h3>
+            <p>Go to the official VirtualBox website at:
+                <a href="https://www.virtualbox.org" target="_blank">https://www.virtualbox.org</a>
+            </p>
+            <img src="assets/img/virtualbox-main.png" alt="VirtualBox Home Page" width="100%">
+
+            <h3>Step 2: Download the Installer</h3>
+            <p>On the download page, choose the version that matches your host operating system:</p>
+            <ul>
+                <li>Windows: <strong>Windows Hosts</strong></li>
+                <li>macOS: <strong>OS X Hosts</strong></li>
+                <li>Linux: <strong>Linux Distributions</strong></li>
+            </ul>
+            <img src="assets/img/vbox-download.png" alt="Download Options for VirtualBox" width="100%">
+
+            <h3>Step 3: Save the File</h3>
+            <p>Click on the appropriate link, and the installer file will begin downloading. Save the file to your
+                computer.
+            </p>
+
+            <h2>2. Installing VirtualBox</h2>
+            <p>Once the file is downloaded, install VirtualBox based on your operating system:</p>
+
+            <h3>For Windows Users</h3>
+            <ol>
+                <li>Locate the downloaded file (e.g., <strong>VirtualBox-<version>-Win.exe</strong>) and double-click it
+                    to
+                    run.</li>
+                <li>The VirtualBox Setup Wizard will open. Click <strong>Next</strong> to proceed.</li>
+                <img src="assets/img/vbox-installer-next.jpg" alt="Windows Installer Welcome Page" width="600">
+                <li>Choose installation options (use default settings) and click <strong>Next</strong>.</li>
+                <li>When prompted about Network Interfaces, click <strong>Yes</strong> to continue.</li>
+                <li>Click <strong>Install</strong> to begin the installation process.</li>
+                <li>Once complete, click <strong>Finish</strong> to close the wizard.</li>
+                <img src="assets/img/vb-finish.png" alt="Windows Installation Complete" width="600">
+            </ol>
+
+            <h3>For macOS Users</h3>
+            <ol>
+                <li>Open the downloaded <strong>.dmg</strong> file.</li>
+                <li>Double-click the <strong>VirtualBox.pkg</strong> file to launch the installer.</li>
+                <img src="assets/img/vb-macos.jpg" alt="macOS Installer Package" width="600">
+                <li>Follow the instructions in the installation wizard and enter your admin credentials when prompted.
+                </li>
+                <li>Once installed, VirtualBox will appear in your <strong>Applications</strong> folder.</li>
+            </ol>
+
+            <h3>For Linux Users</h3>
+            <ol>
+                <li>Open a terminal and update your package manager.</li>
+                <pre>
+sudo apt update
+sudo apt install virtualbox
+        </pre>
+                <li>Alternatively, download the Linux-specific installer (.deb or .rpm) from the website.</li>
+                <img src="assets/img/vb-linux.png" alt="Linux Download Options" width="100%">
+                <li>After installation, launch VirtualBox from the terminal with the command:</li>
+                <pre>virtualbox</pre>
+            </ol>
+
+            <h2>3. Verifying the Installation</h2>
+            <p>After installation, confirm VirtualBox is working:</p>
+            <ul>
+                <li>Open VirtualBox from your Applications or Start Menu.</li>
+                <img src="assets/img/vb-home.png" alt="Launching VirtualBox" width="80%">
+                <li>Click on <strong>New</strong> to create your first virtual machine and ensure everything works
+                    correctly.</li>
+            </ul>
+            </div>
+
+            <div class="card">
+
+            <h2>SETTING UP THE VIRTUAL MACHINE</h2>
+            <p>Once VirtualBox is installed, set up a Virtual Machine (VM) for Linux Mint:</p>
+            <ol>
+                <li>Open VirtualBox and click on <strong>New</strong>.</li>
+                <li>Give the VM a name (e.g., "Linux Mint").</li>
+                <li>Select the operating system type: <strong>Linux</strong> and version: <strong>Ubuntu
+                        (64-bit)</strong>.
+                </li>
+                <img src="assets/img/new-vm.webp" alt="Create New VM" width="600">
+                <li>Allocate memory (RAM): at least <strong>2048 MB</strong>.</li>
+                <li>Create a Virtual Hard Disk and follow the default prompts.</li>
+            </ol>
+
+            <p>Now your virtual machine is ready to install Linux Mint!</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Linux Documentation Project</p>
+    </footer>
+</body>
+
+</html>

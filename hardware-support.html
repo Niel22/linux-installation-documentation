@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware and Driver Support</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Hardware and Driver Support</h1>
+        <p>This guide explains how to verify hardware compatibility, install drivers, and troubleshoot hardware-related issues in Linux.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="linux-installation.html">Linux Installation</a></li>
+            <li><a href="vm-installation.html">Linux Installation on VM</a></li>
+            <li><a href="hardware-support.html">Hardware and Driver Support</a></li>
+            <li><a href="firmware.html">Firmware</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Check Hardware Compatibility</h2>
+        <p>Before installing Linux, ensure that your hardware is compatible. Visit the Linux Hardware Database: <a href="https://linux-hardware.org" target="_blank">linux-hardware.org</a>.</p>
+        <p>Run the following command to generate a hardware report:</p>
+        <pre><code>sudo lshw -short</code></pre>
+
+        <h2>Installing Drivers</h2>
+        <h3>Graphics Drivers</h3>
+        <p>For optimal graphics performance, install the appropriate drivers:</p>
+        <ul>
+            <li><strong>NVIDIA:</strong> Use the proprietary drivers:</li>
+            <pre><code>sudo apt install nvidia-driver-XXX</code></pre>
+            <p>(Replace XXX with the recommended version.)</p>
+            <li><strong>AMD:</strong> The open-source drivers are included in most distributions.</li>
+            <li><strong>Intel:</strong> Drivers are included by default.</li>
+        </ul>
+
+        <h3>Wi-Fi and Network Drivers</h3>
+        <p>Check for Wi-Fi drivers if your adapter isn't working:</p>
+        <pre><code>sudo apt install firmware-linux-nonfree</code></pre>
+        <p>For Realtek Wi-Fi adapters, additional drivers may need to be compiled from the source.</p>
+
+        <h3>Peripheral Devices</h3>
+        <p>Ensure peripherals like printers, scanners, and USB devices work by installing required packages:</p>
+        <pre><code>sudo apt install hplip</code></pre>
+        <p>For HP printers, or consult your device's documentation.</p>
+
+        <h2>Troubleshooting Hardware Issues</h2>
+        <h3>Display Issues</h3>
+        <p>If you encounter screen tearing or resolution problems, configure your graphics drivers or use <code>xrandr</code>:</p>
+        <pre><code>xrandr --output HDMI-1 --mode 1920x1080</code></pre>
+
+        <h3>Audio Problems</h3>
+        <p>Restart the audio service if sound isn’t working:</p>
+        <pre><code>sudo systemctl restart alsa</code></pre>
+
+        <h3>Unrecognized Hardware</h3>
+        <p>If a device isn’t recognized, check system logs for errors:</p>
+        <pre><code>dmesg | grep error</code></pre>
+
+        <h2>Additional Resources</h2>
+        <ul>
+            <li><a href="https://wiki.archlinux.org/title/Hardware_acceleration" target="_blank">Arch Linux Hardware Wiki</a></li>
+            <li><a href="https://help.ubuntu.com/community/HardwareSupport" target="_blank">Ubuntu Hardware Support</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Linux Documentation Project</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firmware</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Firmware Management in Linux</h1>
+        <p>This guide explains how to manage firmware in Linux, including checking, updating, and troubleshooting firmware issues.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="linux-installation.html">Linux Installation</a></li>
+            <li><a href="vm-installation.html">Linux Installation on VM</a></li>
+            <li><a href="hardware-support.html">Hardware and Driver Support</a></li>
+            <li><a href="firmware.html">Firmware</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>What is Firmware?</h2>
+        <p>Firmware is low-level software embedded in hardware components to control their functions. Common examples include BIOS/UEFI and device-specific firmware like Wi-Fi cards or GPUs.</p>
+
+        <h2>Checking Firmware Version</h2>
+        <p>Use the following methods to check your firmware version:</p>
+        <ul>
+            <li><strong>BIOS/UEFI:</strong> Access it during boot by pressing a designated key (e.g., <code>F2</code> or <code>Del</code>).</li>
+            <li><strong>Command Line:</strong> Run the command:</li>
+            <pre><code>sudo dmidecode -t bios</code></pre>
+        </ul>
+
+        <h2>Updating Firmware</h2>
+        <p>Firmware updates are essential for performance and compatibility. Here’s how to update:</p>
+        <h3>BIOS/UEFI Firmware</h3>
+        <p>Visit the manufacturer’s website to download the latest firmware update. Follow their instructions to apply the update. Many modern systems support updates directly through the UEFI interface.</p>
+
+        <h3>Device Firmware</h3>
+        <p>For device-specific firmware (e.g., Wi-Fi cards, GPUs), use the appropriate tools:</p>
+        <ul>
+            <li><strong>Linux Firmware Packages:</strong> Ensure the latest firmware is installed via your package manager:</li>
+            <pre><code>sudo apt install firmware-linux firmware-linux-nonfree</code></pre>
+            <li><strong>Vendor Tools:</strong> Some devices require vendor-specific tools. For example:</li>
+            <pre><code>sudo apt install fwupd
+fwupdmgr get-devices
+fwupdmgr update</code></pre>
+        </ul>
+
+        <h2>Troubleshooting Firmware Issues</h2>
+        <h3>Device Not Recognized</h3>
+        <p>If a device isn’t recognized, check system logs:</p>
+        <pre><code>dmesg | grep firmware</code></pre>
+        <p>Install missing firmware files if indicated.</p>
+
+        <h3>BIOS/UEFI Boot Problems</h3>
+        <p>Reset BIOS settings to default if firmware updates cause issues.</p>
+
+        <h3>Firmware Errors</h3>
+        <p>If you encounter errors during boot, try updating your kernel or reinstalling firmware packages.</p>
+
+        <h2>Additional Resources</h2>
+        <ul>
+            <li><a href="https://fwupd.org/" target="_blank">fwupd Official Website</a></li>
+            <li><a href="https://wiki.archlinux.org/title/Firmware" target="_blank">Arch Linux Firmware Wiki</a></li>
+            <li><a href="https://wiki.debian.org/Firmware" target="_blank">Debian Firmware Wiki</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Linux Documentation Project</p>
+    </footer>
+</body>
+</html>
