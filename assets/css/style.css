@@ -185,6 +185,7 @@ footer {
 
     .card h2, .card h3 {
         font-size: 1.5rem;
+        text-align: left;
     }
 
     .card p, .card ul, .card ol {
