@@ -1,4 +1,4 @@
-/* Reset Styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +7,6 @@
     text-decoration: none;
 }
 
-/* General body styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -16,7 +15,6 @@ body {
     color: #444;
 }
 
-/* Header styling */
 header {
     background: linear-gradient(135deg, #6a11cb, #2575fc);
     color: white;
@@ -37,7 +35,6 @@ header p {
     margin-top: 10px;
 }
 
-/* Navigation Bar */
 nav {
     background-color: #333;
     color: white;
@@ -70,7 +67,8 @@ nav ul li a:hover {
     color: #ff7f50;
 }
 
-/* Main content styling */
+
+
 main {
     max-width: 1200px;
     margin: 40px auto;
@@ -81,7 +79,6 @@ main {
     
 }
 
-/* Card styling */
 .card {
     background: white;
     border-radius: 10px;
@@ -143,7 +140,6 @@ main pre {
     margin: 15px 0;
 }
 
-/* Footer styling */
 footer {
     background-color: #333;
     color: white;
@@ -154,7 +150,6 @@ footer {
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive design for smaller screens */
 @media (max-width: 768px) {
     header h1 {
         font-size: 2.2rem;
@@ -193,7 +188,6 @@ footer {
     }
 }
 
-/* Smooth Scroll for better user experience */
 html {
     scroll-behavior: smooth;
 }
